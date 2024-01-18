@@ -7,3 +7,4 @@ export const MazeParams	 = z.object({
         "difficulty": z.number().int().min(1).max(10).optional()
 })
 
+export type MazeParamsType = z.infer<typeof MazeParams>

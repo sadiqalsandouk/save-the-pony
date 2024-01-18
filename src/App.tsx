@@ -1,13 +1,12 @@
 import './App.css'
-import { createMaze, getMazeCurrentState } from './api/ponyChallenge.ts'
+import CreateGame from './components/CreateGame'
 
 
 function App() {
-  createMaze()
-  getMazeCurrentState()
 
   return (
     <>
+    <CreateGame/>
     </>
   )
 }
