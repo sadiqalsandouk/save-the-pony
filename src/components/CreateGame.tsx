@@ -11,12 +11,20 @@ const CreateGame: React.FC = () => {
     'difficulty': '1',
   })
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: ChangeEvent<any>) => {
     setMazeParams((prevParams) => ({
       ...prevParams,
       [e.target.name]: e.target.value,
     }))
   }
+
+  const handleSelectChange = (e: any) => {
+    const { name, value } = e.target;
+    setMazeParams((prevParams) => ({
+      ...prevParams,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -91,7 +99,7 @@ const CreateGame: React.FC = () => {
         />
 
         <FormControl fullWidth margin="normal">
-          <Select name="maze-player-name" value={mazeParams['maze-player-name']} onChange={handleInputChange}>
+          <Select name="maze-player-name" value={mazeParams['maze-player-name']} onChange={handleSelectChange}>
             {playerNames.map((name) => (
               <MenuItem key={name} value={name}>
                 <Avatar>{name.charAt(0)}</Avatar> {/* TODO: Pony Avatars */}
