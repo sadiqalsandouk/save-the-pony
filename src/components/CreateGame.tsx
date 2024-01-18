@@ -32,8 +32,8 @@ const CreateGame: React.FC = () => {
       console.log(mazeId)
     } catch (error) {
         return (
-            <h1>Error</h1>
-        )
+            console.error('Error creating maze:', error)
+            )
     }
   }
 
