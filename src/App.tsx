@@ -1,5 +1,5 @@
 import './App.css'
-import CreateGame from './components/CreateGame'
+import { CreateGame } from './components/CreateGame'
 
 
 function App() {

@@ -46,7 +46,6 @@ export const makeNextMove = async (mazeId: string, direction: string) => {
 export const printMaze = async (mazeId: string) => {
     try {
       const response = await axios.get(`https://ponychallenge.trustpilot.com/pony-challenge/maze/${mazeId}/print`)
-      console.log('Maze Print:', response.data)
       return response.data
     } catch (error) {
       console.error('Error printing maze:', error)

@@ -1,15 +1,19 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react'
+import { useState, ChangeEvent, FormEvent } from 'react'
 import { createMaze } from '../api/ponyChallenge'
 import { Avatar, Button, FormControl, MenuItem, Select, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
+import { GameScreen } from './GameScreen'
 
-const CreateGame: React.FC = () => {
+export const CreateGame = () => {
   const [mazeParams, setMazeParams] = useState({
     'maze-width': '15',
     'maze-height': '15',
     'maze-player-name': 'Applejack',
     'difficulty': '1',
   })
+
+  const [gameStarted, setGameStarted] = useState(false)
+  const [mazeId, setMazeId] = useState(null)
 
   const handleInputChange = (e: ChangeEvent<any>) => {
     setMazeParams((prevParams) => ({
@@ -19,30 +23,25 @@ const CreateGame: React.FC = () => {
   }
 
   const handleSelectChange = (e: any) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setMazeParams((prevParams) => ({
       ...prevParams,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    try {
       const numericParams = {
         ...mazeParams,
         'maze-width': parseInt(mazeParams['maze-width']),
         'maze-height': parseInt(mazeParams['maze-height']),
         difficulty: parseInt(mazeParams.difficulty),
       }
-
+  
       const mazeId = await createMaze(numericParams)
-      console.log(mazeId)
-    } catch (error) {
-        return (
-            console.error('Error creating maze:', error)
-            )
-    }
+      setGameStarted(true)
+      setMazeId(mazeId)
   }
 
   const playerNames = ['Applejack', 'Fluttershy', 'Rainbow Dash', 'Twilight Sparkle']
@@ -112,8 +111,7 @@ const CreateGame: React.FC = () => {
           Start Game
         </Button>
       </form>
+      {gameStarted && <GameScreen mazeId={mazeId} />}
     </Box>
   )
 }
-
-export default CreateGame
