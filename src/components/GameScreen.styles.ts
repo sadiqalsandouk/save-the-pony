@@ -11,12 +11,13 @@ export const MazeRow = styled.div`
 export const MazeCell = styled.div<{ cell: string }>`
   background-color: ${({ cell }) => getCellBackgroundColor(cell)};
   border: 1px solid #000;
-  color: #333;
+  color: transparent;
   width: 15px;
   height: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
 `;
 
 const getCellBackgroundColor = (cell: string): string => {
