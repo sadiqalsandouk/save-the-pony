@@ -55,7 +55,7 @@ export const CreateGame = () => {
         padding: 4,
         borderRadius: 4,
         boxShadow: 1,
-        bgcolor: 'background.paper',
+        bgcolor: 'white',
         maxWidth: 400,
         margin: 'auto',
       }}

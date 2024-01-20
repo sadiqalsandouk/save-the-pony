@@ -1,7 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import ponyImage from './TwilightSparkle.png';
 
 export const GameScreenContainer = styled.div`
   text-align: center;
+  padding: 4rem;
 `;
 
 export const MazeRow = styled.div`
@@ -9,25 +11,25 @@ export const MazeRow = styled.div`
 `;
 
 export const MazeCell = styled.div<{ cell: string }>`
-  background-color: ${({ cell }) => getCellBackgroundColor(cell)};
-  border: 1px solid #000;
-  color: transparent;
-  width: 15px;
-  height: 15px;
+  color: ${({ cell }) => getCellBackgroundColor(cell)};
+  width: 1rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   user-select: none;
+  background-image: ${({ cell }) => (cell === 'P' ? `url(${ponyImage})` : 'none')};
+  background-size: contain;
 `;
 
 const getCellBackgroundColor = (cell: string): string => {
   switch (cell) {
     case '|':
+      return 'red';
     case '-':
+      return 'blue';
     case '+':
-      return '#333';
-    case 'P':
-      return '#00f';
+      return 'green';
     case 'D':
       return '#f00';
     case 'E':

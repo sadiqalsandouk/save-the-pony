@@ -17,8 +17,7 @@ export const getMazeCurrentState = async (mazeId: string) => {
   if (mazeId) {
     try {
       const response = await axios.get(`https://ponychallenge.trustpilot.com/pony-challenge/maze/${mazeId}`)
-      const currentState = response.data
-      console.log('Current State:', currentState)
+      return response.data
     } catch (error) {
       console.error('Error getting maze state:', error)
       throw error
@@ -35,7 +34,6 @@ export const makeNextMove = async (mazeId: string, direction: string) => {
     }
 
     const response = await axios.post(`https://ponychallenge.trustpilot.com/pony-challenge/maze/${mazeId}`, moveData)
-    console.log('Move successful:', response.data)
     return response.data
   } catch (error) {
     console.error('Error making next move:', error)
