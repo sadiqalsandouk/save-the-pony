@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react"
 import { printMaze, makeNextMove } from "../api/ponyChallenge"
 import { GameScreenContainer, MazeRow, MazeCell } from "./GameScreen.styles"
+import { Button, Typography } from "@mui/material"
 
-export const GameScreen = ({ mazeId }: { mazeId: string | null }) => {
+export const GameScreen = ({
+  mazeId,
+  selectedPony,
+}: {
+  mazeId: string | null
+  selectedPony: string
+}) => {
   const [mazeContent, setMazeContent] = useState<string | null>(null)
   const [gameEnded, setGameEnded] = useState(false)
   const [gameResult, setGameResult] = useState("")
@@ -53,21 +60,27 @@ export const GameScreen = ({ mazeId }: { mazeId: string | null }) => {
       <div onKeyDown={handleKeyDown} tabIndex={0} style={{ outline: "none" }}>
         {gameEnded ? (
           <div>
-            <h2>{gameResult}</h2>
-            <button onClick={() => window.location.reload()}>
-              Start a new game
-            </button>
+            <Typography variant="h2" color={"black"}>
+              {gameResult}
+            </Typography>
+            <Button onClick={() => window.location.reload()}>Play Again?</Button>
           </div>
         ) : (
-          mazeContent?.split("\n").map((row, rowIndex) => (
-            <MazeRow key={rowIndex}>
-              {row.split("").map((cell, cellIndex) => (
-                <MazeCell key={cellIndex} cell={cell}>
-                  {cell}
-                </MazeCell>
-              ))}
-            </MazeRow>
-          ))
+          <div>
+            {mazeContent?.split("\n").map((row, rowIndex) => (
+              <MazeRow key={rowIndex}>
+                {row.split("").map((cell, cellIndex) => (
+                  <MazeCell
+                    key={cellIndex}
+                    cell={cell}
+                    selectedPony={selectedPony}
+                  >
+                    {cell}
+                  </MazeCell>
+                ))}
+              </MazeRow>
+            ))}
+          </div>
         )}
       </div>
     </GameScreenContainer>

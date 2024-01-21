@@ -1,4 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react"
+import { ponyImages } from "../img/ponyIcons"
+
 import { createMaze } from "../api/ponyChallenge"
 import {
   Avatar,
@@ -57,6 +59,7 @@ export const CreateGame = () => {
     "Fluttershy",
     "Rainbow Dash",
     "Twilight Sparkle",
+    "Rarity",
   ]
 
   return (
@@ -73,8 +76,11 @@ export const CreateGame = () => {
         margin: "auto",
       }}
     >
-      <Typography variant="h4" color={"black"} gutterBottom>
-        {gameStarted ? "Game in Progress" : "Create Game"}
+      <Typography variant="h4" color={"black"}>
+        Save The Pony!
+      </Typography>
+      <Typography variant="p" color={"black"}>
+        Guide the pony to the green flag without being eaten
       </Typography>
       {!gameStarted && (
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
@@ -109,14 +115,19 @@ export const CreateGame = () => {
             inputProps={{ min: 1, max: 10 }}
           />
           <FormControl fullWidth margin="normal">
-            <Select
+            <Select 
               name="maze-player-name"
               value={mazeParams["maze-player-name"]}
               onChange={handleSelectChange}
             >
               {playerNames.map((name) => (
-                <MenuItem key={name} value={name}>
-                  <Avatar>{name.charAt(0)}</Avatar> {/* TODO: Pony Avatars */}
+                <MenuItem key={name} value={name}> 
+                  <Avatar
+                    sx={{
+                      marginRight: 3,
+                    }}
+                    src={ponyImages[name]}
+                  />
                   {name}
                 </MenuItem>
               ))}
@@ -129,11 +140,16 @@ export const CreateGame = () => {
             fullWidth
             style={{ marginTop: 16 }}
           >
-            {gameStarted ? "Resume Game" : "Start Game"}
+            Start Game
           </Button>
         </form>
       )}
-      {gameStarted && <GameScreen mazeId={mazeId} />}
+      {gameStarted && (
+        <GameScreen
+          mazeId={mazeId}
+          selectedPony={mazeParams["maze-player-name"]}
+        />
+      )}
     </Box>
   )
 }
