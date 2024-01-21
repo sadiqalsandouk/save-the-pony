@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import ponyImage from './TwilightSparkle.png';
+import styled from 'styled-components'
+import ponyImage from './TwilightSparkle.png'
 
 export const GameScreenContainer = styled.div`
   text-align: center;
