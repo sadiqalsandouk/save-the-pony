@@ -63,7 +63,7 @@ export const GameScreen = ({
         }
       />
       <GameScreenContainer>
-        <div onKeyDown={handleKeyDown} tabIndex={0} style={{ outline: "none" }}>
+        <div data-testid='game-screen' onKeyDown={handleKeyDown} tabIndex={0} style={{ outline: "none" }}>
           {gameEnded ? (
             <div>
               <Typography variant="h4" color={"black"}>

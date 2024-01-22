@@ -10,8 +10,6 @@ import {
   Select,
   TextField,
   Typography,
-  BottomNavigation,
-  AppBar,
   Card,
 } from "@mui/material"
 import { Box } from "@mui/system"
@@ -70,7 +68,7 @@ export const CreateGame = () => {
       <Typography variant="h5" color={"black"}>
         Save The Pony!
       </Typography>
-      <Box
+      <Box data-testid='create-game'
         sx={{
           display: "flex",
           flexDirection: "column",
