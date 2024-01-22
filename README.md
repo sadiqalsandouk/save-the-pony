@@ -1,7 +1,8 @@
 # Save the Pony
 
-A maze game where the User must guide the Pony to the exit whilst being chased by a Monster. The user can use arrow keys on screen or the keyboard. Using the Trustpilot API:
+A maze game where the User must guide the Pony to the exit whilst being chased by a Monster. The user can use arrow keys on screen or the keyboard. [Live Demo](https://save-the-pony.vercel.app/)
 
+Using the Trustpilot API:
 https://ponychallenge.trustpilot.com/api-docs/index.html#/pony-challenge
 
 ## Getting Started
