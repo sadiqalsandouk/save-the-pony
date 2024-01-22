@@ -1,19 +1,31 @@
-import styled from 'styled-components';
-import { applejackImage, twilightsparkleImage, fluttershyImage, rainbowdashImage, rarityImage, domokunImage, exitImage, lineImage, dashImage, dotImage } from '../img/index';
+import styled, { keyframes } from 'styled-components'
+import { applejackImage, twilightsparkleImage, fluttershyImage, rainbowdashImage, rarityImage, domokunImage, exitImage, lineImage, dashImage, dotImage } from '../img/index'
+
+export const ArrowKeysContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+`
+
+export const ArrowKeyButton = styled.button`
+  font-size: 16px;
+  padding: 8px;
+  cursor: pointer;
+`
 
 export const GameScreenContainer = styled.div`
   text-align: center;
-  padding: 4rem;
-`;
+  padding: 1rem;
+`
 
 export const MazeRow = styled.div`
   display: flex;
-`;
+`
 
 export const MazeCell = styled.div<{ cell: string; selectedPony: string }>`
   color: ${({ cell }) => getCellBackgroundColor(cell)};
-  width: 0.5rem;
-  height: 1rem;
+  width: 0.45rem;
+  height: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +33,12 @@ export const MazeCell = styled.div<{ cell: string; selectedPony: string }>`
   background-image: ${({ cell, selectedPony }) => getPonyImage(cell, selectedPony)};
   background-size: contain;
   background-repeat: no-repeat;
-`;
+
+  @media only screen and (max-width: 600px) {
+    width: 0.29rem;
+    height: 0.6rem;
+  }
+`
 
 const getCellBackgroundColor = (cell: string): string => {
   switch (cell) {
@@ -40,7 +57,7 @@ const getCellBackgroundColor = (cell: string): string => {
     default:
       return '#eee';
   }
-};
+}
 
 const getPonyImage = (cell: string, selectedPony: string): string => {
   if (cell === 'P') {
@@ -70,4 +87,4 @@ const getPonyImage = (cell: string, selectedPony: string): string => {
     return `url(${dotImage})`
   }
   return 'none';
-};
+}
