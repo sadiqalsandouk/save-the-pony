@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { applejackImage, twilightsparkleImage, fluttershyImage, rainbowdashImage, rarityImage, domokunImage, exitImage, lineImage, dashImage, dotImage } from '../img/index'
 
 export const ArrowKeysContainer = styled.div`
