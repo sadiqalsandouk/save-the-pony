@@ -40,5 +40,3 @@ To run tests:
    ```bash
    npm run dev
    ```
-
-### Testing
