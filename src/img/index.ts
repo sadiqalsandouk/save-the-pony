@@ -1,7 +1,7 @@
-import applejackImage from '../img/Applejack.png';
-import twilightsparkleImage from '../img/TwilightSparkle.png';
-import fluttershyImage from '../img/Fluttershy.png';
-import rainbowdashImage from '../img/RainbowDash.png';
+import applejackImage from '../img/Applejack.png'
+import twilightsparkleImage from '../img/TwilightSparkle.png'
+import fluttershyImage from '../img/Fluttershy.png'
+import rainbowdashImage from '../img/RainbowDash.png'
 import rarityImage from '../img/Rarity.png'
 import domokunImage from '../img/Domokun.png'
 import exitImage from '../img/Exit.png'
@@ -20,4 +20,4 @@ export {
     lineImage,
     dashImage,
     dotImage
-  };
+  }

@@ -1,7 +1,7 @@
-import { applejackImage, twilightsparkleImage, fluttershyImage, rainbowdashImage, rarityImage } from '../img/index';
+import { applejackImage, twilightsparkleImage, fluttershyImage, rainbowdashImage, rarityImage } from '../img/index'
 
 interface PonyImages {
-    [key: string]: string;
+    [key: string]: string
   }
 
 export const ponyImages: PonyImages = {
@@ -10,4 +10,4 @@ export const ponyImages: PonyImages = {
   'Twilight Sparkle': twilightsparkleImage,
   'Rainbow Dash': rainbowdashImage,
   Rarity: rarityImage,
-};
+}
