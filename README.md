@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# Save the Pony
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A maze game where the User must guide the Pony to the exit whilst being chased by a Monster. The user can use arrow keys on screen or the keyboard. Using the Trustpilot API:
 
-Currently, two official plugins are available:
+https://ponychallenge.trustpilot.com/api-docs/index.html#/pony-challenge
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+The TypeScript solution is created with React.js, spun up using Vite and used some MUI components and styled-components.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+These instructions will help you set up and run the project on your local machine.
 
-- Configure the top-level `parserOptions` property like this:
+### Prerequisites
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- [Node.js](https://nodejs.org/) / [npm](https://www.npmjs.com/) installed on your machine.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Installation
+
+1. Clone and navigate to the repository:
+   ```bash
+   git clone https://github.com/sadiqalsandouk/save-the-pony.git
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+Start the development server:
+   ```bash
+   npm run dev
+   ```
+The application will be available at http://localhost:5173/
+
+
+### Testing
+To run tests:
+   ```bash
+   npm run dev
+   ```
+
+### Testing
